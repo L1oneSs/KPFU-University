@@ -1,0 +1,67 @@
+@startuml
+
+actor User as "Пользователь"
+actor Admin as "Админ"
+actor RegUser as "Зарегестрированный пользователь"
+actor NonRegUser as "Незарегестрированный пользователь"
+actor Artist as "Исполнитель"
+
+User -down-> RegUser
+User -down-> NonRegUser
+
+"Использование приложения" as (CanUsetheApp)
+"Авторизация" as (Autorisation)
+"Выход" as (Exit)
+"Прослушивание" as (Listening)
+"Добавление треков в библиотеку" as (AddTracktoLibrary)
+"Добавление альбомов в библиотеку" as (AddAlbumtoLibrary)
+"Прослушивание рекомендаций" as (Recomendations)
+"Просмотр карточки трека" as (ToWatchTheTrackCard)
+"Просмотр карточки исполнителя" as (ToWatchTheArtistCard)
+"Выбор темы" as (SwithTheme)
+"Удаление аккаунта" as (DeleteAccount)
+
+
+rectangle "Плейлист" as Playlist{
+usecase "Создание" as UC1
+usecase "Добавление треков" as UC2
+usecase "Удаление" as UC3 
+}
+
+
+
+"Поиск" as (Search)
+
+"Регистрация" as (Reg)
+
+
+NonRegUser --> Reg 
+Reg --> Autorisation
+Autorisation --> CanUsetheApp
+Autorisation -right  -> DeleteAccount
+
+RegUser --> Autorisation
+
+CanUsetheApp --> Exit
+Exit --> Autorisation
+
+CanUsetheApp --> Search
+CanUsetheApp --> Listening
+CanUsetheApp --> AddTracktoLibrary
+CanUsetheApp --> AddAlbumtoLibrary
+CanUsetheApp --> Playlist
+CanUsetheApp --> Recomendations
+CanUsetheApp --> ToWatchTheTrackCard
+CanUsetheApp --> ToWatchTheArtistCard
+CanUsetheApp --> SwithTheme
+
+Playlist --> UC1
+Playlist --> UC2
+Playlist --> UC3
+
+
+
+
+
+
+@enduml

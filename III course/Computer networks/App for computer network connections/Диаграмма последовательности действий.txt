@@ -1,0 +1,188 @@
+@startuml
+
+actor User as  "User"
+
+usecase "Ввести количество узлов" as NodeCountInput
+usecase "Ввести коордтнаты узлов" as CoordsInput
+usecase "Загрузить данные" as LoadData
+usecase "Загрузить матрицу нагрузки" as LoadAdjMatrix
+usecase "Выбрать топологию" as SelectTopology
+usecase "Смоделировать" as ToModel
+usecase "Ввести коэффициент линейной функции" as Enter_d
+usecase "Ввести ограничение средней задержки" as Enter_max_av_latency
+usecase "Ввести индекс точки старта" as Enter_index_start_node
+usecase "ВМУР" as VMUR
+usecase "CSM" as CSM
+usecase "Назад" as GoBack
+usecase "Сохранить" as Save
+
+User -- NodeCountInput
+User -- CoordsInput
+User -- LoadData
+User -- LoadAdjMatrix
+User -- SelectTopology
+User -- ToModel
+User -- Enter_d
+User -- Enter_max_av_latency
+User -- Enter_index_start_node
+User -- VMUR
+User -- CSM
+User -- GoBack
+User -- Save
+
+
+rectangle "NodeCountInput_Action"{
+ usecase "Заполнение переменной nodesNumber" as NCI_A_1
+ usecase "Заполнение переменной nodesNumberNoTopology" as NCI_A_2
+ usecase "Создание матрицы nodesCoords" as NCI_A_3
+ usecase "Создание матрицы nodesCoordsNoTopology" as NCI_A_4
+ usecase "Открытие формы Coords" as Coords_Open 
+}
+
+NCI_A_1 -[hidden]- NCI_A_2
+NCI_A_2 -[hidden]- NCI_A_3
+NCI_A_3 -[hidden]- NCI_A_4
+NCI_A_4 -[hidden]- Coords_Open
+
+rectangle "Coords" as Coords{
+  usecase "Добавить" as Input
+  usecase "Назад" as GoBack_Coords
+  usecase "Ввести координату X" as X_I
+  usecase "Ввести координату Y" as Y_I
+}
+
+Input -[hidden]- GoBack_Coords
+GoBack_Coords -[hidden]- X_I
+X_I -[hidden]- Y_I
+
+rectangle "Input_Action"{
+  usecase "Заполнение матрицы nodesCoords" as IA1
+  usecase "Заполнение матрицы nodesCoordsNoTopology" as IA2
+  usecase "Создание матрицы adjacencyMatrix" as IA3
+  usecase "Создание матрицы adjacencyMatrixNoTopology" as IA4
+  usecase "Расчет пропускных способностей каналов: метод MatrixBandWidth" as IA5
+
+}
+
+IA1 -[hidden]- IA2
+IA2 -[hidden]- IA3
+IA3 -[hidden]- IA4
+IA4 -[hidden]- IA5
+
+rectangle "LoadData_Action"{
+  usecase "Создание матрицы devicesMatrix" as CA1
+  usecase "Заполнение матрицы devicesMatrix" as CA2
+}
+
+CA1 -[hidden]- CA2
+
+
+rectangle LoadAdjMatrix_Action{
+  usecase "Создание матрицы adjacencyMatrix" as LA1
+  usecase "Создание матрицы adjacencyMatrixNoTopology" as LA2
+  usecase "Заполнение матрицы adjacencyMatrix" as LA3
+  usecase "Заполнение матрицы adjacencyMatrixNoTopology" as LA4
+  
+}
+
+LA1 -[hidden]- LA2
+LA2 -[hidden]- LA3
+LA3 -[hidden]- LA4
+
+rectangle "SelectTopology_Action"{
+  usecase "Заполнение переменной comboBoxSelectedIndex" 
+}
+
+rectangle "ToModel_Action"{
+  usecase "Создание матрицы координат" as TA1
+  usecase "Создание матрицы соединений" as TA2
+  usecase "Создание матрицы длин соединений" as TA3
+  usecase "Заполнение матрицы нагрузки" as TA4
+  usecase "Заполнение матрицы координат" as TA5
+  usecase "Создание узлов и соединений: метод makeButtons" as TA6
+}
+
+TA1 -[hidden]- TA2
+TA2 -[hidden]- TA3
+TA3 -[hidden]- TA4
+TA4 -[hidden]- TA5
+TA5 -[hidden]- TA6
+
+rectangle "VMUR_Action"{
+  usecase "Создание матрицы средней задержки по каналам" as VA1
+  usecase "Заполнение матрицы средней задержки по каналам" as VA2
+  usecase "Заполнение максимальной задержки" as VA3
+  usecase "Создание матрицы весов" as VA4
+  usecase "Заполнение матрицы весов" as VA5
+  usecase "Выполнение метода ВМУР" as VA6
+  usecase "Перерасчет матрицы весов: MatrixBandWidth()" as VA7
+  usecase "Обновление соединений: UpdateConnections();" as VA8
+}
+
+VA1 -[hidden]- VA2
+VA2 -[hidden]- VA3
+VA3 -[hidden]- VA4
+VA4 -[hidden]- VA5
+VA5 -[hidden]- VA6
+VA6 -[hidden]- VA7
+VA7 -[hidden]- VA8
+
+rectangle "VMUR_Realise"{
+  usecase "bandWidth()" as VR1
+  usecase "ConnectionWeight()" as VR2
+  usecase "CountD()" as VR3
+  usecase "Dijkstra()" as VR4
+}
+
+VR1 -[hidden]- VR2
+VR2 -[hidden]- VR3
+VR3 -[hidden]- VR4
+
+rectangle "CSM_Action"{
+  usecase "Перерасчет T" as CSMA1
+  usecase "Перерасчет weightMatrix" as CSMA2
+  usecase "Создание sectionMatrix" as CSMA3
+  usecase "Расчет sectionMatrix" as CSMA4
+  usecase "Создание maxSectionMatrix" as CSMA5
+  usecase "Расчет maxSectionMatrix" as CSMA6
+  usecase "CalculateAverageLoad()" as CSMA7
+  usecase "MatrixBandWidth()" as CSMA8
+  usecase "Расчет ненагруженных каналов" as CSMA9
+  usecase "Расчет насыщенного сечения" as CSMA10
+}
+
+CSMA1 -[hidden]- CSMA2
+CSMA2 -[hidden]- CSMA3
+CSMA3 -[hidden]- CSMA4
+CSMA4 -[hidden]- CSMA5
+CSMA5 -[hidden]- CSMA6
+CSMA6 -[hidden]- CSMA7
+CSMA7 -[hidden]- CSMA8
+CSMA8 -[hidden]- CSMA9
+CSMA9 -[hidden]- CSMA10
+
+rectangle "Save_Action"{
+  usecase "Storage.SaveData()" as SA1
+  usecase "File.Create()" as SA2
+}
+
+SA1 -[hidden]- SA2
+
+CoordsInput -- NodeCountInput_Action
+Coords_Open -- Input
+Coords_Open -- GoBack_Coords
+Input -- Input_Action
+LoadData -- LoadData_Action
+LoadAdjMatrix -- LoadAdjMatrix_Action
+SelectTopology -- SelectTopology_Action
+ToModel -- ToModel_Action
+VMUR -- VMUR_Action
+VA6 -- VMUR_Realise
+CSM -- CSM_Action
+Save -- Save_Action
+
+
+
+
+
+@enduml

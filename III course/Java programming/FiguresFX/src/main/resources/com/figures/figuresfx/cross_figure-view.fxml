@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" prefHeight="688.0" prefWidth="990.0" spacing="20.0" styleClass="vbox" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.figures.figuresfx.CrossFiguresController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <children>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="688.0" prefWidth="990.0">
+            <children>
+                <ComboBox id="comboBox5" fx:id="comboBox5" layoutX="340.0" layoutY="60.0" prefWidth="150.0" styleClass="combo-box" />
+                <ComboBox id="comboBox6" fx:id="comboBox6" layoutX="340.0" layoutY="13.0" prefWidth="150.0" styleClass="combo-box" />
+                <Button id="button7" fx:id="button7" layoutX="508.0" layoutY="20.0" mnemonicParsing="false" onAction="#button7_Click" prefHeight="67.0" prefWidth="214.0" text="Пересечение фигур" />
+            <Button fx:id="CancelButton" layoutX="730.0" layoutY="20.0" mnemonicParsing="false" onAction="#CancelButton_Click" text="Отмена" />
+            <ComboBox fx:id="comboBox7" onAction="#comboBox7_move" prefWidth="150.0" />
+            </children></AnchorPane>
+    </children>
+</VBox>

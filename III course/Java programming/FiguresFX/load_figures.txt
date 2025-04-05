@@ -1,0 +1,9 @@
+8
+Circle 1 1 1
+Segment 0 2 1 1
+Polyline 3 0 3 2 1 1 1
+NGon 5 1 1 2 3 4 6 3 0 1 0
+TGon 3 1 5 2 10 3 8
+QGon 4 5 7 9 8 10 3 2 2
+Rectangle 4 0 4 8 10 11 6 3 0
+Trapeze 4 -1 4 1 10 5 9 2 0

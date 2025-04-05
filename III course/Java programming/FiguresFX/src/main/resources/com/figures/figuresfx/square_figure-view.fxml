@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" prefHeight="688.0" prefWidth="990.0" spacing="20.0" styleClass="vbox" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.figures.figuresfx.SquareFigureController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <children>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="688.0" prefWidth="990.0">
+            <children>
+                <ComboBox id="comboBox4" fx:id="comboBoxs" layoutX="14.0" layoutY="13.0" prefWidth="150.0" styleClass="combo-box" />
+                <Button id="button6" fx:id="buttons" layoutX="694.0" layoutY="24.0" mnemonicParsing="false" onAction="#buttons_Click" prefHeight="80.0" prefWidth="141.0" text="Подсчитать" />
+                <Button fx:id="CancelButton" layoutX="694.0" layoutY="92.0" mnemonicParsing="false" onAction="#CancelButton_Click" text="Отмена" />
+            </children></AnchorPane>
+    </children>
+</VBox>

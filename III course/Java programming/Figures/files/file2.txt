@@ -1,0 +1,8 @@
+shift 3 3
+rot 1
+symAxis 0
+shift -2 1
+rot 0.6
+symAxis 1
+shift 3 -2
+rot 1.9

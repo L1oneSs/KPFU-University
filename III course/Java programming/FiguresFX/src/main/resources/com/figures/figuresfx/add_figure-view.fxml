@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" prefHeight="688.0" prefWidth="990.0" spacing="20.0" styleClass="vbox" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.figures.figuresfx.AddFiguresController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <children>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="688.0" prefWidth="990.0">
+            <children>
+                <ComboBox id="comboBox1" fx:id="comboBox1" layoutX="14.0" layoutY="13.0" onAction="#comboBox1_SelectedIndexChanged" prefWidth="150.0" styleClass="combo-box" />
+                <Spinner id="numericUpDown1" fx:id="numericUpDown1" disable="true" layoutX="191.0" layoutY="14.0" />
+                <Label id="label1" fx:id="label1" layoutX="382.0" layoutY="13.0" prefHeight="27.0" prefWidth="97.0" text="Радиус:" visible="false" />
+                <TextField id="textBox1" fx:id="textBox1" layoutX="443.0" layoutY="14.0" visible="false" />
+                <Pane id="pn1" fx:id="pn1" layoutX="14.0" layoutY="77.0" prefHeight="66.0" prefWidth="150.0" styleClass="my-pane" stylesheets="@styles.css" visible="false">
+                    <children>
+                        <Label id="label4" fx:id="label4" layoutX="23.0" layoutY="6.0" prefHeight="17.0" prefWidth="50.0" text="1 точка" />
+                        <Label id="label3" fx:id="label3" layoutX="11.0" layoutY="33.0" text="x:" />
+                        <Label id="label2" fx:id="label2" layoutX="82.0" layoutY="33.0" text="y:" />
+                        <TextField id="textBox3" fx:id="textBox3" layoutX="29.0" layoutY="29.0" prefHeight="25.0" prefWidth="37.0" />
+                        <TextField id="textBox2" fx:id="textBox2" layoutX="99.0" layoutY="29.0" prefHeight="25.0" prefWidth="37.0" />
+                    </children></Pane>
+                <Pane id="pn6" fx:id="pn6" layoutX="14.0" layoutY="544.0" prefHeight="66.0" prefWidth="150.0" styleClass="my-pane" stylesheets="@styles.css" visible="false">
+                    <children>
+                        <Label id="label25" fx:id="label25" layoutX="27.0" layoutY="6.0" text="6 точка" />
+                        <Label id="label24" fx:id="label24" layoutX="14.0" layoutY="33.0" text="x:" />
+                        <Label id="label23" fx:id="label23" layoutX="84.0" layoutY="33.0" text="y:" />
+                        <TextField id="textBox16" fx:id="textBox16" layoutX="29.0" layoutY="29.0" prefHeight="25.0" prefWidth="37.0" />
+                        <TextField id="textBox17" fx:id="textBox17" layoutX="99.0" layoutY="29.0" prefHeight="25.0" prefWidth="37.0" />
+                    </children></Pane>
+                <Pane id="pn5" fx:id="pn5" layoutX="14.0" layoutY="452.0" prefHeight="66.0" prefWidth="150.0" styleClass="my-pane" stylesheets="@styles.css" visible="false">
+                    <children>
+                        <Label id="label22" fx:id="label22" layoutX="30.0" layoutY="6.0" text="5 точка" />
+                        <Label id="label21" fx:id="label21" layoutX="14.0" layoutY="33.0" text="x:" />
+                        <Label id="label20" fx:id="label20" layoutX="83.0" layoutY="33.0" text="y:" />
+                        <TextField id="textBox14" fx:id="textBox14" layoutX="32.0" layoutY="29.0" prefHeight="25.0" prefWidth="37.0" />
+                        <TextField id="textBox15" fx:id="textBox15" layoutX="99.0" layoutY="29.0" prefHeight="25.0" prefWidth="37.0" />
+                    </children></Pane>
+                <Pane id="pn4" fx:id="pn4" layoutX="14.0" layoutY="356.0" prefHeight="66.0" prefWidth="150.0" styleClass="my-pane" stylesheets="@styles.css" visible="false">
+                    <children>
+                        <Label id="label19" fx:id="label19" layoutX="28.0" layoutY="6.0" text="4 точка" />
+                        <Label id="label18" fx:id="label18" layoutX="14.0" layoutY="33.0" text="x:" />
+                        <Label id="label17" fx:id="label17" layoutX="83.0" layoutY="33.0" text="y:" />
+                        <TextField id="textBox12" fx:id="textBox12" layoutX="28.0" layoutY="29.0" prefHeight="25.0" prefWidth="37.0" />
+                        <TextField id="textBox13" fx:id="textBox13" layoutX="99.0" layoutY="29.0" prefHeight="25.0" prefWidth="37.0" />
+                    </children></Pane>
+                <Pane id="pn3" fx:id="pn3" layoutX="14.0" layoutY="264.0" prefHeight="66.0" prefWidth="150.0" styleClass="my-pane" stylesheets="@styles.css" visible="false">
+                    <children>
+                        <Label id="label16" fx:id="label16" layoutX="26.0" layoutY="6.0" text="3 точка" />
+                        <Label id="label15" fx:id="label15" layoutX="10.0" layoutY="36.0" text="x:" />
+                        <Label id="label14" fx:id="label14" layoutX="81.0" layoutY="36.0" text="y:" />
+                        <TextField id="textBox10" fx:id="textBox10" layoutX="28.0" layoutY="32.0" prefHeight="25.0" prefWidth="37.0" />
+                        <TextField id="textBox11" fx:id="textBox11" layoutX="99.0" layoutY="32.0" prefHeight="25.0" prefWidth="37.0" />
+                    </children></Pane>
+                <Pane id="pn2" fx:id="pn2" layoutX="14.0" layoutY="170.0" prefHeight="66.0" prefWidth="150.0" styleClass="my-pane" stylesheets="@styles.css" visible="false">
+                    <children>
+                        <Label id="label13" fx:id="label13" layoutX="29.0" layoutY="6.0" text="2 точка" />
+                        <Label id="label12" fx:id="label12" layoutX="10.0" layoutY="36.0" text="x:" />
+                        <Label id="label11" fx:id="label11" layoutX="82.0" layoutY="36.0" text="y:" />
+                        <TextField id="textBox8" fx:id="textBox8" layoutX="31.0" layoutY="32.0" prefHeight="25.0" prefWidth="37.0" />
+                        <TextField id="textBox9" fx:id="textBox9" layoutX="99.0" layoutY="32.0" prefHeight="25.0" prefWidth="37.0" />
+                    </children></Pane>
+                <Pane id="pn18" fx:id="pn18" layoutX="443.0" layoutY="544.0" prefHeight="66.0" prefWidth="150.0" styleClass="my-pane" stylesheets="@styles.css" visible="false">
+                    <children>
+                        <Label id="label55" fx:id="label55" layoutX="30.0" layoutY="6.0" text="18 точка" />
+                        <Label id="label54" fx:id="label54" layoutX="10.0" layoutY="33.0" text="x:" />
+                        <Label id="label53" fx:id="label53" layoutX="84.0" layoutY="33.0" text="y:" />
+                        <TextField id="textBox36" fx:id="textBox36" layoutX="30.0" layoutY="29.0" prefHeight="25.0" prefWidth="37.0" />
+                        <TextField id="textBox37" fx:id="textBox37" layoutX="99.0" layoutY="29.0" prefHeight="25.0" prefWidth="37.0" />
+                    </children></Pane>
+                <Pane id="pn17" fx:id="pn17" layoutX="443.0" layoutY="452.0" prefHeight="66.0" prefWidth="150.0" styleClass="my-pane" stylesheets="@styles.css" visible="false">
+                    <children>
+                        <Label id="label52" fx:id="label52" layoutX="31.0" layoutY="6.0" text="17 точка" />
+                        <Label id="label51" fx:id="label51" layoutX="14.0" layoutY="33.0" text="x:" />
+                        <Label id="label50" fx:id="label50" layoutX="82.0" layoutY="33.0" text="y:" />
+                        <TextField id="textBox34" fx:id="textBox34" layoutX="31.0" layoutY="29.0" prefHeight="25.0" prefWidth="37.0" />
+                        <TextField id="textBox35" fx:id="textBox35" layoutX="99.0" layoutY="29.0" prefHeight="25.0" prefWidth="37.0" />
+                    </children></Pane>
+                <Pane id="pn16" fx:id="pn16" layoutX="443.0" layoutY="356.0" prefHeight="66.0" prefWidth="150.0" styleClass="my-pane" stylesheets="@styles.css" visible="false">
+                    <children>
+                        <Label id="label49" fx:id="label49" layoutX="26.0" layoutY="6.0" text="16 точка" />
+                        <Label id="label48" fx:id="label48" layoutX="14.0" layoutY="33.0" text="x:" />
+                        <Label id="label47" fx:id="label47" layoutX="84.0" layoutY="33.0" text="y:" />
+                        <TextField id="textBox32" fx:id="textBox32" layoutX="31.0" layoutY="29.0" prefHeight="25.0" prefWidth="37.0" />
+                        <TextField id="textBox33" fx:id="textBox33" layoutX="99.0" layoutY="29.0" prefHeight="25.0" prefWidth="37.0" />
+                    </children></Pane>
+                <Pane id="pn15" fx:id="pn15" layoutX="443.0" layoutY="264.0" prefHeight="66.0" prefWidth="150.0" styleClass="my-pane" stylesheets="@styles.css" visible="false">
+                    <children>
+                        <Label id="label46" fx:id="label46" layoutX="31.0" layoutY="6.0" text="15 точка" />
+                        <Label id="label45" fx:id="label45" layoutX="14.0" layoutY="33.0" text="x:" />
+                        <Label id="label44" fx:id="label44" layoutX="84.0" layoutY="33.0" text="y:" />
+                        <TextField id="textBox30" fx:id="textBox30" layoutX="31.0" layoutY="29.0" prefHeight="25.0" prefWidth="37.0" />
+                        <TextField id="textBox31" fx:id="textBox31" layoutX="99.0" layoutY="29.0" prefHeight="25.0" prefWidth="37.0" />
+                    </children></Pane>
+                <Pane id="pn14" fx:id="pn14" layoutX="443.0" layoutY="170.0" prefHeight="66.0" prefWidth="150.0" styleClass="my-pane" stylesheets="@styles.css" visible="false">
+                    <children>
+                        <Label id="label43" fx:id="label43" layoutX="26.0" layoutY="6.0" text="14 точка" />
+                        <Label id="label42" fx:id="label42" layoutX="14.0" layoutY="33.0" text="x:" />
+                        <Label id="label41" fx:id="label41" layoutX="82.0" layoutY="33.0" text="y:" />
+                        <TextField id="textBox28" fx:id="textBox28" layoutX="31.0" layoutY="29.0" prefHeight="25.0" prefWidth="37.0" />
+                        <TextField id="textBox29" fx:id="textBox29" layoutX="99.0" layoutY="29.0" prefHeight="25.0" prefWidth="37.0" />
+                    </children></Pane>
+                <Pane id="pn13" fx:id="pn13" layoutX="443.0" layoutY="77.0" prefHeight="66.0" prefWidth="150.0" styleClass="my-pane" stylesheets="@styles.css" visible="false">
+                    <children>
+                        <Label id="label10" fx:id="label10" layoutX="25.0" layoutY="6.0" text="13 точка" />
+                        <Label id="label9" fx:id="label9" layoutX="14.0" layoutY="33.0" text="x:" />
+                        <Label id="label8" fx:id="label8" layoutX="84.0" layoutY="33.0" text="y:" />
+                        <TextField id="textBox6" fx:id="textBox6" layoutX="30.0" layoutY="29.0" prefHeight="25.0" prefWidth="37.0" />
+                        <TextField id="textBox7" fx:id="textBox7" layoutX="99.0" layoutY="29.0" prefHeight="25.0" prefWidth="37.0" />
+                    </children></Pane>
+                <Pane id="pn12" fx:id="pn12" layoutX="224.0" layoutY="544.0" prefHeight="66.0" prefWidth="150.0" styleClass="my-pane" stylesheets="@styles.css" visible="false">
+                    <children>
+                        <Label id="label40" fx:id="label40" layoutX="24.0" layoutY="6.0" text="12 точка" />
+                        <Label id="label39" fx:id="label39" layoutX="10.0" layoutY="33.0" text="x:" />
+                        <Label id="label38" fx:id="label38" layoutX="81.0" layoutY="33.0" text="y:" />
+                        <TextField id="textBox26" fx:id="textBox26" layoutX="24.0" layoutY="29.0" prefHeight="25.0" prefWidth="37.0" />
+                        <TextField id="textBox27" fx:id="textBox27" layoutX="99.0" layoutY="29.0" prefHeight="25.0" prefWidth="37.0" />
+                    </children></Pane>
+                <Pane id="pn11" fx:id="pn11" layoutX="224.0" layoutY="452.0" prefHeight="66.0" prefWidth="150.0" styleClass="my-pane" stylesheets="@styles.css" visible="false">
+                    <children>
+                        <Label id="label37" fx:id="label37" layoutX="24.0" layoutY="6.0" text="11 точка" />
+                        <Label id="label36" fx:id="label36" layoutX="10.0" layoutY="33.0" text="x:" />
+                        <Label id="label35" fx:id="label35" layoutX="89.0" layoutY="33.0" text="y:" />
+                        <TextField id="textBox24" fx:id="textBox24" layoutX="24.0" layoutY="29.0" prefHeight="25.0" prefWidth="37.0" />
+                        <TextField id="textBox25" fx:id="textBox25" layoutX="99.0" layoutY="29.0" prefHeight="25.0" prefWidth="37.0" />
+                    </children></Pane>
+                <Pane id="pn10" fx:id="pn10" layoutX="224.0" layoutY="356.0" prefHeight="66.0" prefWidth="150.0" styleClass="my-pane" stylesheets="@styles.css" visible="false">
+                    <children>
+                        <Label id="label34" fx:id="label34" layoutX="24.0" layoutY="6.0" text="10 точка" />
+                        <Label id="label33" fx:id="label33" layoutX="14.0" layoutY="33.0" text="x:" />
+                        <Label id="label32" fx:id="label32" layoutX="81.0" layoutY="33.0" text="y:" />
+                        <TextField id="textBox22" fx:id="textBox22" layoutX="29.0" layoutY="29.0" prefHeight="25.0" prefWidth="37.0" />
+                        <TextField id="textBox23" fx:id="textBox23" layoutX="99.0" layoutY="29.0" prefHeight="25.0" prefWidth="37.0" />
+                    </children></Pane>
+                <Pane id="pn9" fx:id="pn9" layoutX="224.0" layoutY="264.0" prefHeight="66.0" prefWidth="150.0" styleClass="my-pane" stylesheets="@styles.css" visible="false">
+                    <children>
+                        <Label id="label31" fx:id="label31" layoutX="28.0" layoutY="6.0" text="9 точка" />
+                        <Label id="label30" fx:id="label30" layoutX="14.0" layoutY="33.0" text="x:" />
+                        <Label id="label29" fx:id="label29" layoutX="89.0" layoutY="33.0" text="y:" />
+                        <TextField id="textBox20" fx:id="textBox20" layoutX="30.0" layoutY="29.0" prefHeight="25.0" prefWidth="37.0" />
+                        <TextField id="textBox21" fx:id="textBox21" layoutX="99.0" layoutY="29.0" prefHeight="25.0" prefWidth="37.0" />
+                    </children></Pane>
+                <Pane id="pn8" fx:id="pn8" layoutX="224.0" layoutY="170.0" prefHeight="66.0" prefWidth="150.0" styleClass="my-pane" stylesheets="@styles.css" visible="false">
+                    <children>
+                        <Label id="label28" fx:id="label28" layoutX="31.0" layoutY="6.0" text="8 точка" />
+                        <Label id="label27" fx:id="label27" layoutX="14.0" layoutY="33.0" text="x:" />
+                        <Label id="label26" fx:id="label26" layoutX="84.0" layoutY="33.0" text="y:" />
+                        <TextField id="textBox18" fx:id="textBox18" layoutX="33.0" layoutY="29.0" prefHeight="25.0" prefWidth="37.0" />
+                        <TextField id="textBox19" fx:id="textBox19" layoutX="99.0" layoutY="29.0" prefHeight="25.0" prefWidth="37.0" />
+                    </children></Pane>
+                <Pane id="pn7" fx:id="pn7" layoutX="224.0" layoutY="77.0" prefHeight="66.0" prefWidth="150.0" styleClass="my-pane" stylesheets="@styles.css" visible="false">
+                    <children>
+                        <Label id="label7" fx:id="label7" layoutX="26.0" layoutY="6.0" text="7 точка" />
+                        <Label id="label6" fx:id="label6" layoutX="14.0" layoutY="33.0" text="x:" />
+                        <Label id="label5" fx:id="label5" layoutX="81.0" layoutY="33.0" text="y:" />
+                        <TextField id="textBox4" fx:id="textBox4" layoutX="28.0" layoutY="29.0" prefHeight="25.0" prefWidth="37.0" />
+                        <TextField id="textBox5" fx:id="textBox5" layoutX="99.0" layoutY="29.0" prefHeight="25.0" prefWidth="37.0" />
+                    </children></Pane>
+         <Button fx:id="button4" layoutX="693.0" layoutY="7.0" mnemonicParsing="false" onAction="#button4_Click" prefHeight="34.0" prefWidth="170.0" text="Добавить" />
+         <Button fx:id="buttonCancel" layoutX="693.0" layoutY="57.0" mnemonicParsing="false" onAction="#buttonCancel_Click" text="Отмена" />
+            </children></AnchorPane>
+    </children>
+</VBox>

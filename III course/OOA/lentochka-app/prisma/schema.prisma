@@ -1,0 +1,167 @@
+// prisma/schema.prisma
+datasource db {
+    provider  = "postgresql"
+    url       = env("DATABASE_URL")
+    directUrl = env("DATABASE_URL_UNPOOLED")
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+enum UserRole {
+    ADMIN
+    USER
+}
+
+model Account {
+    id                String  @id @default(cuid())
+    userId            String
+    type              String
+    provider          String
+    providerAccountId String
+    refresh_token     String? @db.Text
+    access_token      String? @db.Text
+    expires_at        Int?
+    token_type        String?
+    scope             String?
+    id_token          String? @db.Text
+    session_state     String?
+
+    user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+    @@unique([provider, providerAccountId])
+}
+
+model User {
+    id                    String                 @id @default(cuid())
+    name                  String?
+    nickname              String?                @unique
+    email                 String?                @unique
+    image                 String?
+    password              String?
+    description           String?
+    emailVerified         DateTime?
+    role                  UserRole               @default(USER)
+    accounts              Account[]
+    isTwoFactorEnabled    Boolean                @default(false)
+    isUserBanned          Boolean                @default(false)
+    twoFactorConfirmation TwoFactorConfirmation?
+    friends               Friends[]
+    potentialFriends      PotentialFriends[]
+}
+
+model Friends {
+    id            String @id @default(cuid())
+    nicknameBy    String
+    nicknameTo    String
+    userId        String
+    userIdPFriend String
+    user          User   @relation(fields: [userId], references: [id])
+}
+
+model PotentialFriends {
+    id            String @id @default(cuid())
+    nicknameBy    String
+    nicknameTo    String
+    userId        String
+    userIdPFriend String
+    user          User   @relation(fields: [userId], references: [id])
+}
+
+model VerificationToken {
+    id      String   @id @default(cuid())
+    email   String
+    token   String   @unique
+    expires DateTime
+
+    @@unique([email, token])
+}
+
+model PasswordResetToken {
+    id      String   @id @default(cuid())
+    email   String
+    token   String   @unique
+    expires DateTime
+
+    @@unique([email, token])
+}
+
+model TwoFactorToken {
+    id      String   @id @default(cuid())
+    email   String
+    token   String   @unique
+    expires DateTime
+
+    @@unique([email, token])
+}
+
+model Product {
+    id          String   @id @default(cuid())
+    name        String
+    category    Category @relation(fields: [categoryId], references: [id])
+    categoryId  String
+    slug        String   @unique
+    price       Float
+    description String
+    image       String
+    wishlistId  String?
+}
+
+model Basket {
+    id        String @id @default(cuid())
+    userId    String
+    productId String
+    count     Int
+}
+
+model Order {
+    id           String   @id @default(cuid())
+    userId       String
+    productId    String[]
+    status       String
+    createdAt    DateTime
+    deliveryDate DateTime
+    adress       String
+}
+
+model TwoFactorConfirmation {
+    id String @id @default(cuid())
+
+    userId String
+    user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+    @@unique([userId])
+}
+
+model Wishlist {
+    id String @id @default(cuid())
+
+    userId String
+
+    productId String
+
+    @@unique([userId, id])
+}
+
+//  model Link {
+//      id         String   @id @default(cuid())
+//      url        String
+//      wishlistId String
+//      wishlist   Wishlist @relation(fields: [wishlistId], references: [id], onDelete: Cascade)
+
+//      @@index([wishlistId])
+//  }
+
+model Category {
+    id      String    @id @default(cuid())
+    title   String
+    tag     String
+    img     String
+    Product Product[]
+
+    // Wishlist   Wishlist? @relation(fields: [wishlistId], references: [id])
+    // wishlistId String?
+
+    // @index(wishlistId)
+}

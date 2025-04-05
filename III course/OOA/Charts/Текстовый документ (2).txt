@@ -1,0 +1,196 @@
+@startuml
+
+actor User as "Пользователь"
+actor Admin as "Админ"
+actor RegUser as "Зарегестрированный пользователь"
+actor NonRegUser as "Незарегестрированный пользователь"
+actor Artist as "Исполнитель"
+
+RegUser -down-> User
+NonRegUser -down-> User
+
+
+"Ввод логина" as (Login)
+"Ввод пароля" as (Password)
+
+rectangle "Окно регистрации" as RegistrationWindow{
+usecase "Ввод данных" as RegistrationInput
+usecase "Выход" as RegistrationExit
+}
+RegistrationInput <.. Login:<<extend>>
+RegistrationInput <.. Password:<<extend>>
+User -up- RegistrationInput
+User -up- RegistrationExit
+RegistrationInput -[hidden]- RegistrationExit
+
+
+rectangle "Окно авторизации" as AutorisationWindow{
+usecase "Ввод данных" as AutorisationInput
+usecase "Выход" as AutorisationExit
+}
+AutorisationInput <.. Login:<<extend>>
+AutorisationInput <.. Password:<<extend>>
+User -up- AutorisationInput
+User -up- AutorisationExit
+Artist -- AutorisationInput
+Artist -- AutorisationExit
+Admin -- AutorisationInput
+Admin -- AutorisationExit
+AutorisationInput -[hidden]- AutorisationExit
+
+rectangle "Окно исполнителя" as ArtistWindow{
+usecase "Создать альбом" as AlbumCreate
+usecase "Удалить альбом" as AlbumDelete
+usecase "Добавить трек в альбом" as AddTrackToAlbum
+usecase "Удалить трек из альбома" as DeleteTrackFromAlbum
+usecase "Добавить трек на площадку" as AddTrackToApp
+usecase "Удалить трек с площадки" as DeleteTrackFromApp
+}
+Artist -right- AlbumCreate
+Artist -right- AlbumDelete
+Artist -right- AddTrackToAlbum
+Artist -right- DeleteTrackFromAlbum
+Artist -right- AddTrackToApp
+Artist -right- DeleteTrackFromApp
+AlbumCreate -[hidden]- AlbumDelete
+AlbumDelete -[hidden]- AddTrackToAlbum
+AddTrackToAlbum -[hidden]- DeleteTrackFromAlbum
+DeleteTrackFromAlbum -[hidden]- AddTrackToApp
+AddTrackToApp -[hidden]- DeleteTrackFromApp
+
+rectangle "Панель администратора" as AdminPanel{
+usecase "Задать роль пользователю" as SetRole
+usecase "Изменить роль пользователя" as ChangeRole
+usecase "Заблокировать пользователя" as BlockUser
+usecase "Удалить аккаунт пользователя" as DeleteUser
+usecase "Посмотреть статистику" as CheckStatistics
+SetRole -[hidden]- ChangeRole
+ChangeRole -[hidden]- BlockUser
+BlockUser -[hidden]- DeleteUser
+DeleteUser -[hidden]- CheckStatistics
+}
+Admin -left- SetRole
+Admin -left- ChangeRole
+Admin -left- BlockUser
+Admin -left- DeleteUser
+Admin -left- CheckStatistics
+
+rectangle "Библиотека" as Library{
+usecase "Воспроизвести альбом" as AlbumPlay
+usecase "Удалить альбом" as AlbumDelete
+usecase "Создать плейлист" as PlaylistCreate
+usecase "Добавить трек в плейлист" as AddTrackToPlaylist
+usecase "Удалить трек из плейлиста" as DeleteTrackFromPlaylist
+usecase "Удалить плейлист" as PlaylistDelete
+usecase "Воспроизвести трек" as TrackPlay
+usecase "Удалить трек" as TrackDelete
+usecase "Посмотреть карточку исполнителя трека" as ToCheckCardOfArtist
+}
+User -up- AlbumPlay
+User -up- AlbumDelete
+User -up- PlaylistCreate
+User -up- AddTrackToPlaylist
+User -up- DeleteTrackFromPlaylist
+User -up- PlaylistDelete
+User -up- TrackPlay
+User -up- ToCheckCardOfArtist
+
+rectangle "Подкасты" as Podcasts{
+usecase "Воспроизвести подкаст" as PodcastPlay
+usecase "Посмотреть карточку диктора" as ToCheckCardOfArtistPod
+}
+PodcastPlay -[hidden]- ToCheckCardOfArtistPod
+User -down- PodcastPlay
+User -down- ToCheckCardOfArtistPod
+
+rectangle "Рекоммендации" as Recommendations{
+usecase "Прослушать трек" as TrackPlayRec
+usecase "Посмотреть карточку исполнителя трека" as ToCheckCardOfArtistRec
+}
+TrackPlayRec -[hidden]- ToCheckCardOfArtistRec
+User -down- TrackPlayRec
+User -down- ToCheckCardOfArtistRec
+
+rectangle "Поиск" as Search{
+usecase "Найти трек" as FindTrack
+usecase "Найти альбом" as FindAlbum
+usecase "Найти исполнителя" as FindArtist
+}
+FindTrack -[hidden]- FindAlbum
+FindAlbum -[hidden]- FindArtist
+User -down- FindTrack
+User -down- FindArtist
+User -down- FindAlbum
+
+rectangle "Страница треков" as TrackList{
+usecase "Воспроизвести трек" as TrackPlayTL
+usecase "Посмотреть карточку исполнителя трека" as ToCheckCardOfArtistTL
+}
+TrackPlayTL -[hidden]- ToCheckCardOfArtistTL
+User -down- TrackPlayTL
+User -down- ToCheckCardOfArtistTL
+
+rectangle "Плеер" as Player{
+usecase "Воспроизвести трек" as TrackPlayP
+usecase "Посмотреть карточку исполнителя трека" as ToCheckCardOfArtistTLP
+usecase "Перемотать трек" as TrackRewind
+usecase "Переключить трек" as TrackSkip
+}
+TrackPlayP -[hidden]- ToCheckCardOfArtistTLP
+ToCheckCardOfArtistTLP -[hidden]- TrackRewind
+TrackRewind -[hidden]- TrackSkip
+User -down- TrackPlayP
+User -down- ToCheckCardOfArtistTLP
+User -down- TrackRewind
+User -down- TrackSkip
+
+rectangle "Настройки" as Settings{
+usecase "Выбрать темы" as ThemeSwitch
+usecase "Выйти из аккаунта" as ToExitFromAccount
+usecase "Удалить аккаунт" as ToDeleteAccount
+}
+ThemeSwitch -[hidden]- ToExitFromAccount
+ToExitFromAccount -[hidden]- ToDeleteAccount
+User -down- ThemeSwitch 
+User -down- ToExitFromAccount
+User -down- ToDeleteAccount
+Artist -- ThemeSwitch
+Artist -- ToExitFromAccount
+Artist -- ToDeleteAccount
+Admin -- ThemeSwitch
+Admin -- ToExitFromAccount
+Admin -- ToDeleteAccount
+
+
+Library -[hidden]- User
+Library -[hidden]- NonRegUser
+Library -[hidden]- RegUser
+Library -[hidden]- Artist
+Library -[hidden]- Admin
+Library -[hidden]- ArtistWindow
+
+Library -[hidden]- ArtistWindow
+Library -[hidden]- AdminPanel
+
+User -[hidden]- Podcasts
+User -[hidden]- Recommendations
+User -[hidden]- Search
+User -[hidden]- TrackList
+User -[hidden]- Settings
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@enduml

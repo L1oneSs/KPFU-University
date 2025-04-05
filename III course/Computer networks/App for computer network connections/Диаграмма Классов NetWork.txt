@@ -1,0 +1,141 @@
+@startuml
+
+
+class StorageData{
+  +double d
+  +double T
+  +double maxLatency
+  +int comboBoxSelectedIndex
+  +double maxAverageLetency
+  +int nodesNumber
+  +string[,] devicesMatrix
+  +double[,] nodesCoords
+  +double[,] middleLatency
+  +double[,] lengthConnections
+  +double[,] matrixBandWidth
+  +double[,] MatrixDij
+  +double[,] weightMatrix
+  +double[,] adjacencyMatrix
+  +int[,] adjacencyMatrixNoTopology
+  +int[,] nodesConnections
+  +List<int> bandWidth = new List<int>
+  +List<double> uniqueValuesList = new List<double>()
+  +string selectedTopology
+  +double[,] nodesCoordsNoTopology
+  +int nodesNumberNoTopology
+  +int indexStartNode
+  +double[,] sectionMatrix
+  +double[,] maxSectionMatrix
+  
+  Storage
+}
+
+class Storage{
+  +static StorageData Data { get; set; }
+  +static bool IsDataSaved()
+  +static void SaveData(string fileName)
+  +static void LoadData(string fileName)
+}
+
+class Coords{
+  +int i = 0
+  +int counterFreeNodes = Storage.Data.nodesNumber
+  +Coords()
+  -void button1_Click(object sender, EventArgs e)
+  -void Coords_Load(object sender, EventArgs e)
+  -void button2_Click(object sender, EventArgs e)
+  -void MatrixBandWidth()
+}
+
+class Form2{
+  
+  +int nodesColumns = 3
+  +int centerX
+  +int centerY
+  -List<Connection> connections = new List<Connection>
+  
+  +bool checkedFullGraph = false
+  +bool checkedConnections = false
+  +double sum
+  +double sumTraffic
+  +double D
+  - Button activeNodeButton = null;
+  - bool isDragging = false;
+
+  - Button buttonPressed = null;
+  - Button firstNodeToConnect = null;
+  - Button secondNodeToConnect = null;
+  - bool isCtrlPressed = false;
+  - bool isShiftPressed = false;
+  - bool isAltPressed = false;
+  -Point initialNodeLocation;
+  
+  +Form2()
+  -void Element_Click(object sender)
+  -void Element_ChangeCoords(double coord1, double coord2, object sender)
+  -void Element_ChangeCoords_dataGridView(double value, double coord, int index)
+  -void button2_Click(object sender, EventArgs e)
+  -void button3_Click(object sender, EventArgs e)
+  -void Form2_Load(object sender, EventArgs e)
+  -void button4_Click(object sender, EventArgs e)
+  -void MatrixBandWidth()
+  -void makeButtonsAfterSaved()
+  -void makeButtons(bool t = false)
+  -void FillLengthConnections()
+  -void button1_Click_1(object sender, EventArgs e)
+  -void NodeButton_MouseDown(object sender, MouseEventArgs e)
+  -void NodeButton_MouseMove(object sender, MouseEventArgs e)
+  -void NodeButton_MouseUp(object sender, MouseEventArgs e)
+  -void panel2_Paint(object sender, PaintEventArgs e)
+  -void CreateConnection()
+  -void DeleteConnection()
+  -void UpdateMatricesAndArraysAfterNodeDeletion(int deletedNodeIndex)
+  -void UpdateConnections()
+  -void UpdateConnectionsFromDataGridView()
+  -void Form2_KeyDown(object sender, KeyEventArgs e)
+  -void Form2_KeyUp(object sender, KeyEventArgs e)
+  -void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+  -void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+  -void dataGridView2_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+  -void dataGridView4_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+  -void panel2_MouseDown(object sender, MouseEventArgs e)
+  -void button7_Click_1(object sender, EventArgs e)
+  +void bandWidth()
+  +void ConnectionWeight()
+  +void Dijkstra()
+  +double countD(double[,] Matrix)
+  -void textBox2_TextChanged(object sender, EventArgs e)
+  -void textBox3_TextChanged(object sender, EventArgs e)
+  -void button8_Click(object sender, EventArgs e)
+  -void save()
+  -void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+  -void tabControl1_Selecting(object sender, TabControlCancelEventArgs e)
+  -void Form2_FormClosing(object sender, FormClosingEventArgs e)
+  -void textBox5_TextChanged(object sender, EventArgs e)
+  -void button11_Click(object sender, EventArgs e)
+  -double CalculateAverageLoad()
+  -void button13_Click(object sender, EventArgs e)
+  -void dataGridView8_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+  -void dataGridView9_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+  -void button12_Click_1(object sender, EventArgs e)
+  
+  
+  
+  
+  
+  Connection
+}
+
+class Connection{
+  +Button StartNode { get; set; }
+  +Button EndNode { get; set; }
+  +bool IsSaturated { get; set; }
+  +bool IsUnsaturated { get; set; }
+}
+
+Storage --> StorageData
+Connection --> Form2
+Coords --> StorageData
+Form2 -- Coords
+
+@enduml

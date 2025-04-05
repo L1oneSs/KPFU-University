@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" prefHeight="688.0" prefWidth="990.0" spacing="20.0" styleClass="vbox" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.figures.figuresfx.MainController">
+  <padding>
+    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+  </padding>
+   <children>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="688.0" prefWidth="990.0">
+                     <children>
+                        <Pane id="panel1" fx:id="panel1" layoutX="579.0" layoutY="14.0" prefHeight="568.0" prefWidth="275.0" styleClass="my-pane" stylesheets="@styles.css">
+                           <children>
+                              <Button id="button1" fx:id="button1" layoutX="31.0" layoutY="506.0" mnemonicParsing="false" onAction="#button1_Click" text="Очистить" />
+                              <Button id="button2" fx:id="fbutton2" layoutX="31.0" layoutY="397.0" mnemonicParsing="false" onAction="#fbutton2_Click" text="Площадь фигуры" />
+                              <Button id="button3" fx:id="fbutton3" layoutX="31.0" layoutY="455.0" mnemonicParsing="false" onAction="#fbutton3_Click" text="Периметр фигуры" />
+                              <Button id="button4" fx:id="fbutton4" layoutX="31.0" layoutY="14.0" mnemonicParsing="false" onAction="#fbutton4_click" prefHeight="25.0" prefWidth="130.0" text="Добавить фигуру" />
+                              <Button fx:id="fbutton5" layoutX="31.0" layoutY="65.0" mnemonicParsing="false" onAction="#fbutton5_click" text="Переместить фигуру" />
+                              <Button fx:id="fbutton6" layoutX="31.0" layoutY="291.0" mnemonicParsing="false" onAction="#fbutton6_click" text="Удалить фигуру" />
+                              <Button fx:id="fbutton7" layoutX="31.0" layoutY="343.0" mnemonicParsing="false" onAction="#fbutton7_click" text="Пересечение фигур" />
+                              <Button fx:id="button_save" layoutX="31.0" layoutY="123.0" mnemonicParsing="false" onAction="#button_save_Click" text="Сохранить файл" />
+                              <Button fx:id="button_loadFile" layoutX="31.0" layoutY="180.0" mnemonicParsing="false" onAction="#button_loadFile_Click" text="Загрузить файл" />
+                              <Button fx:id="button_saveIMG" layoutX="31.0" layoutY="235.0" mnemonicParsing="false" onAction="#button_saveIMG_Click" text="Сохранить изображение" />
+                           </children>
+                        </Pane>
+                        <Label id="label61" fx:id="label61" layoutX="579.0" layoutY="586.0" prefHeight="33.0" prefWidth="102.0" text="Пересечение:" />
+                        <TextField id="textBox41" fx:id="textBox41" disable="true" layoutX="695.0" layoutY="590.0">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></TextField>
+                        <Canvas fx:id="canvas" height="619.0" width="508.0" />
+                     </children></AnchorPane>
+   </children>
+</VBox>

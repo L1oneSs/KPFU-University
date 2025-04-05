@@ -1,0 +1,93 @@
+.my-pane {
+    -fx-border-width: 2px;
+    -fx-border-style: solid;
+    -fx-border-color: #232323;
+    -fx-border-radius: 5px; /* Радиус скругления границы */
+    -fx-padding: 5px; /* Внутренний отступ от границы */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 5, 5); /* Тень для границы */
+}
+
+.button {
+    -fx-background-color: linear-gradient(#333333, #555555);
+    -fx-background-radius: 5px;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-pref-width: 200px; /* Увеличьте предпочтительную ширину */
+    -fx-pref-height: 40px; /* Увеличьте предпочтительную высоту */
+    -fx-background-color: rgba(20%, 20%, 20%, 0.4);
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(#555555, #333333);
+}
+
+/* Стилизация ComboBox */
+.combo-box {
+    -fx-font-size: 12px; /* Уменьшаем размер шрифта */
+    -fx-background-color: #FFFFFF; /* Цвет фона */
+    -fx-border-color: #AAAAAA; /* Цвет границы */
+    -fx-border-width: 1px; /* Толщина границы */
+    -fx-border-radius: 5px; /* Скругление краев */
+    -fx-pref-width: 150px; /* Меньшая предпочтительная ширина */
+}
+
+/* Стиль для выпадающего списка ComboBox */
+.combo-box-popup .list-view {
+    -fx-font-size: 12px; /* Размер шрифта списка */
+    -fx-background-color: #FFFFFF; /* Цвет фона списка */
+}
+
+/* Стиль для стрелки ComboBox */
+.combo-box .arrow {
+    -fx-background-color: #333333; /* Цвет стрелки */
+}
+
+/* Стиль для текста в ComboBox */
+.combo-box .text {
+    -fx-fill: #000000; /* Цвет текста */
+}
+
+/* Стилизация TabPane */
+.tab-pane {
+    -fx-background-color: #FFFFFF; /* Белый цвет фона TabPane */
+}
+
+/* Стиль для вкладок (Tab) */
+.tab {
+    -fx-font-size: 14px; /* Размер шрифта вкладок */
+    -fx-background-color: #DDDDDD; /* Белый цвет фона вкладок */
+    -fx-text-fill: #333333; /* Цвет текста вкладок */
+    -fx-background-radius: 0; /* Убираем скругление углов */
+}
+
+/* Стиль для активной вкладки (выделенной) */
+.tab:selected {
+    -fx-background-color: #ababab; /* Немного темнее для активной вкладки */
+    -fx-text-fill: #333333; /* Цвет текста активной вкладки */
+}
+
+/* Удаление границы для выбранной вкладки */
+.tab-pane:focused .tab:selected .focus-indicator {
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    fx-background-color: #ababab
+}
+
+/* Стилизация VBox */
+.vbox {
+    -fx-background-color: #FFFFFF; /* Цвет фона VBox */
+    -fx-padding: 10px; /* Внутренний отступ */
+    -fx-spacing: 10px; /* Отступ между дочерними элементами */
+}
+
+/* Пример стиля для дочерних элементов VBox */
+.vbox .child-element {
+    -fx-font-size: 16px; /* Размер шрифта для дочерних элементов */
+    -fx-text-fill: #333333; /* Цвет текста для дочерних элементов */
+}
+
+
+
+
+
+

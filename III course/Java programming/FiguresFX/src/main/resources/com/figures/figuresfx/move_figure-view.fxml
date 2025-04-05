@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" prefHeight="688.0" prefWidth="990.0" spacing="20.0" styleClass="vbox" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.figures.figuresfx.MoveFiguresController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <children>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="692.0" prefWidth="991.0">
+            <children>
+                <ComboBox id="comboBox2" fx:id="comboBox2" layoutX="14.0" layoutY="13.0" onAction="#comboBox2_SelectedIndexChanged" prefWidth="150.0" styleClass="combo-box" />
+                <ComboBox id="comboBox3" fx:id="comboBox3" layoutX="14.0" layoutY="64.0" prefWidth="150.0" styleClass="combo-box" />
+                <Button id="button5" fx:id="button5" layoutX="694.0" layoutY="24.0" mnemonicParsing="false" onAction="#button5_Click" prefHeight="46.0" prefWidth="140.0" text="Переместить фигуру" />
+                <Pane id="pn111" fx:id="pn111" disable="true" layoutX="14.0" layoutY="171.0" prefHeight="77.0" prefWidth="166.0" styleClass="my-pane" stylesheets="@styles.css">
+                    <children>
+                        <Label id="label56" fx:id="label56" layoutX="40.0" layoutY="14.0" text="Вектор сдвига:" />
+                        <Label id="label57" fx:id="label57" layoutX="14.0" layoutY="46.0" text="x:" />
+                        <Label id="label58" fx:id="label58" layoutX="89.0" layoutY="46.0" text="y:" />
+                        <TextField id="textBox38" fx:id="textBox38" layoutX="29.0" layoutY="42.0" prefHeight="25.0" prefWidth="34.0" />
+                        <TextField id="textBox39" fx:id="textBox39" layoutX="107.0" layoutY="42.0" prefHeight="25.0" prefWidth="34.0" />
+                    </children>
+                </Pane>
+                <Pane id="pn222" fx:id="pn222" disable="true" layoutX="208.0" layoutY="171.0" prefHeight="77.0" prefWidth="166.0" styleClass="my-pane" stylesheets="@styles.css">
+                    <children>
+                        <Label id="label59" fx:id="label59" layoutX="41.0" layoutY="14.0" text="Угол поворота:" />
+                        <TextField id="textBox40" fx:id="textBox40" layoutX="44.0" layoutY="36.0" prefHeight="25.0" prefWidth="77.0" />
+                    </children>
+                </Pane>
+                <Pane id="pn333" fx:id="pn333" disable="true" layoutX="400.0" layoutY="171.0" prefHeight="77.0" prefWidth="166.0" styleClass="my-pane" stylesheets="@styles.css">
+                    <children>
+                        <Label id="label60" fx:id="label60" layoutX="39.0" layoutY="14.0" text="Ось симметрии:" />
+                        <Spinner id="domainUpDown1" fx:id="domainUpDown1" layoutX="42.0" layoutY="39.0" prefHeight="25.0" prefWidth="83.0" />
+                    </children>
+                </Pane>
+            <Button fx:id="CancelButton" layoutX="694.0" layoutY="91.0" mnemonicParsing="false" onAction="#CancelButton_Click" text="Отмена" />
+            </children></AnchorPane>
+    </children>
+</VBox>

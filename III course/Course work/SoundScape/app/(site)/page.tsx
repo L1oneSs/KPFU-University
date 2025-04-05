@@ -1,0 +1,72 @@
+import getSongs from "@/actions/getSongs";
+import Header from "@/components/Header";
+import ListItem from "@/components/ListItem";
+import PageContent from "./components/PageContent";
+import greetings from "./greetings"
+import getAllAlbums from "@/actions/getAllAlbums";
+import getSongsForAlbum from "@/actions/getSongsForAlbum";
+
+
+export const revalidate = 0;
+
+export default async function Home() {
+  const songs = await getSongs();
+  const albums = await getAllAlbums();
+
+  const albumSongs = await Promise.all(albums.map(async (album) => {
+    return {
+      albumId: album.id,
+      songs: await getSongsForAlbum(album.id)
+    };
+  }));
+
+  const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
+
+  return (
+    <div
+      className="
+        bg-neutral-900 
+        rounded-lg 
+        h-full 
+        w-full 
+        overflow-hidden 
+        overflow-y-auto
+      "
+    >
+      <Header>
+        <div className="mb-2">
+          <h1 
+            className="
+            text-white 
+              text-3xl 
+              font-semibold
+            ">
+              {randomGreeting}
+          </h1>
+          <div 
+            className="
+              grid 
+              grid-cols-1 
+              sm:grid-cols-2 
+              xl:grid-cols-3 
+              2xl:grid-cols-4 
+              gap-3 
+              mt-4
+            "
+          >
+            <ListItem 
+              name="Favourites" 
+              image="/images/liked2.png" 
+              href="liked" 
+            />
+          </div>
+        </div>
+      </Header>
+      <div className="mt-2 mb-7 px-6">
+        <div className="flex justify-between items-center">
+        </div>
+        <PageContent songs={songs} albums={albums} albumSongs={albumSongs} />
+      </div>
+    </div>
+  )
+}
