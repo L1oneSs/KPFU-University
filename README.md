@@ -36,6 +36,10 @@
 
 ## III курс
 
+### Курсовая работа
+
+1. [Музыкальный web-сервис SoundScape.](https://github.com/L1oneSs/KPFU-University/tree/main/III%20course/Course%20work)
+
 ### Компьютерная графика (Python)
 
 1. [Из описания графической модели “Чайник Юты”:](https://github.com/L1oneSs/KPFU-University/tree/main/III%20course/Computer%20Graphics/Laboratory%20works/I%20work)
