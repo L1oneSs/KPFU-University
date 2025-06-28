@@ -1,0 +1,112 @@
+@startuml
+title Сущности базы данных
+
+entity "Buy" as buy {
+  +id: integer (PK)
+  price: float
+  ticker: string
+  signal: string
+  time: datetime
+}
+
+entity "Instruments" as instruments {
+  +id: integer (PK)
+  ticker: string
+  figi: string
+}
+
+entity "Margin" as margin {
+  +id: integer (PK)
+  margin: float
+  ticker: string
+  signal: string
+  time: datetime
+}
+
+entity "Orders" as orders {
+  +id: integer (PK)
+  ticker: string
+  signal: string
+  bm_value: float
+  operation_type: string
+}
+
+entity "Scheduler Config" as scheduler_config {
+  +id: integer (PK)
+  collapse_updates: boolean
+  collapse_updates_time: datetime
+  market_updates: boolean
+  market_updates_time: datetime
+}
+
+entity "Signal Alligator" as signal_alligator {
+  +id: integer (PK)
+  jaw_period: int
+  jaw_shift: int
+  teeth_period: int
+  teeth_shift: int
+  lips_period: int
+  lips_shift: int
+}
+
+entity "Signal Bollinger" as signal_bollinger {
+  +id: integer (PK)
+  period: int
+  deviation: int
+  type_ma: string
+}
+
+entity "Signal EMA" as signal_ema {
+  +id: integer (PK)
+  fast_length: int
+  slow_length: int
+}
+
+entity "Signal MACD" as signal_macd {
+  +id: integer (PK)
+  fast_length: int
+  slow_length: int
+  signal_length: int
+}
+
+entity "Signal RSI" as signal_rsi {
+  +id: integer (PK)
+  period: int
+  high_level: int
+  low_level: int
+}
+
+entity "Signal SMA" as signal_sma {
+  +id: integer (PK)
+  fast_length: int
+  slow_length: int
+}
+
+entity "Signal TPSL" as signal_tpsl {
+  +id: integer (PK)
+  take_profit: int
+  stop_loss: int
+}
+
+entity "Strategy Settings" as strategy_settings {
+  +id: integer (PK)
+  time: datetime
+  auto_market: boolean
+  quantity: int
+  join: boolean
+  sandbox_trigger: boolean
+}
+
+entity "Strategy Signals" as strategy_signals {
+  +id: integer (PK)
+  tpsl_trigger: boolean
+  rsi_trigger: boolean
+  sma_trigger: boolean
+  ema_trigger: boolean
+  alligator_trigger: boolean
+  lstm_trigger: boolean
+  bollinger_trigger: boolean
+  macd_trigger: boolean
+}
+
+@enduml

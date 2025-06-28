@@ -1,0 +1,24 @@
+@startuml
+actor User
+entity "Bot" as Bot
+entity "TradingApiClient" as TradingApiClient
+entity "Statistics Graph" as StatsGraph
+
+User -> Bot : Запрос на статистику
+Bot -> User : Отправка меню статистики
+User -> Bot : Выбор интервала или полной статистики
+Bot -> TradingApiClient : Получение данных о покупках и марже из БД
+TradingApiClient -> Bot : Данные о покупках и марже
+Bot -> StatsGraph : Построение графиков статистики
+StatsGraph -> Bot : Графики статистики
+Bot -> User : Отправка графиков
+
+note right of Bot
+    Включает шаги:
+    1. Запрос статистики
+    2. Валидация интервала или получение полной статистики
+    3. Получение данных через API
+    4. Формирование и отправка графика
+end note
+
+@enduml

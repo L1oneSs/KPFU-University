@@ -1,0 +1,30 @@
+@startuml
+title Взаимодействие компонентов системы
+
+actor "Пользователь" as User
+
+rectangle "Telegram API" as TelegramAPI #LightBlue
+rectangle "Backend API" as BackendAPI #LightGreen
+rectangle "API Т-Инвестиций" as TInvestmentsAPI #LightYellow
+rectangle "Блок обработки данных" as ProcessingBlock #LightCoral
+database "База данных" as Database #LightGray
+rectangle "Прослойка Client API" as ClientAPI 
+rectangle "Блок необходимых функций" as CommandBlock
+
+
+User --> TelegramAPI : Действие пользователя
+TInvestmentsAPI --> ProcessingBlock : Ответ
+
+TelegramAPI --> ClientAPI : Выполнение требуемой команды
+ClientAPI --> BackendAPI: Назначение маршрута и передача параметров
+BackendAPI --> Database : Запрос к БД
+Database --> ProcessingBlock : Данные из БД или сигнал о выполнении действия
+ProcessingBlock --> TelegramAPI : Обработанный ответ
+TelegramAPI --> User : Отправка обработанного ответа
+
+
+TelegramAPI --> CommandBlock : Выполнение требуемой команды
+CommandBlock --> TInvestmentsAPI : Запрос данных или выполнение действия
+
+
+@enduml

@@ -1,0 +1,19 @@
+@startuml
+title Модуль портфолио — схема взаимодействия компонентов
+
+actor "Пользователь" as User
+
+rectangle "Telegram API" as TelegramAPI #LightBlue
+rectangle "Блок функций обработки портфеля" as BackendAPI #LightGreen
+rectangle "API Т-Инвестиций" as TInvestmentsAPI #LightYellow
+rectangle "Блок обработки данных" as PortfolioBlock #Thistle
+
+User --> TelegramAPI : Нажатие кнопки Порфолио
+TelegramAPI --> BackendAPI : Передача команды
+BackendAPI --> TInvestmentsAPI : Запрос на получение данных портфеля
+
+TInvestmentsAPI --> PortfolioBlock : Данные по портфелю
+PortfolioBlock --> TelegramAPI : Удобный для пользователя формат данных
+TelegramAPI --> User : Отправка информации о портфеле
+
+@enduml
