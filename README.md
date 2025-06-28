@@ -4,6 +4,10 @@
 
 ## IV курс
 
+### Дипломная работа
+
+1. [Интерактивная система для автоматизированного трейдинга и управления финансовыми активами.](https://github.com/L1oneSs/KPFU-University/tree/main/IV%20course/Diploma/Program)
+
 ### Информационная безопасность (Python)
 
 1. [Приложение для шифрования, расшифрования и дешифрования текста при помощи шифра Цезаря.](https://github.com/L1oneSs/KPFU-University/tree/main/IV%20course/Information%20Security/I%20labwork)
