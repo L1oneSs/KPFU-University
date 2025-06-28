@@ -1,0 +1,9 @@
+database.db
+.env
+venv
+log/log.txt
+__pycache__/
+*.pyc
+log.txt
+logs.log
+TODO.txt
